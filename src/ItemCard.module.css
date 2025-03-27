@@ -1,0 +1,36 @@
+.item-card{
+    background-color: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5%;
+    width: 100%;
+  }
+  .item-card-title{
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 10px;
+  }
+  .item-card-status{
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+  }
+  .pending {
+    background-color: #808080;
+    font-weight: normal;
+  }
+  
+  .inProgress {
+    background-color: #027BFF;
+    font-weight: bold;
+  }
+  
+  .done {
+    background-color: #008001;
+    text-decoration: line-through;
+  }

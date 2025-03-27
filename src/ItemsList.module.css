@@ -1,0 +1,22 @@
+div{
+    display: flex;
+     justify-content: center;
+     flex-direction: column;
+  }
+  ul{
+     list-style: none;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     margin-left: 0px 0px 0px 0px;
+  }
+  .items-list{
+     margin: 10px;
+     padding: 10px;
+     border-radius: 5px;
+     background:#333333;
+     width: 45%;
+     max-width: 400px;
+     display: flex;
+     justify-content: center;
+  }
