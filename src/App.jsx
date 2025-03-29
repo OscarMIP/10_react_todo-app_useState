@@ -1,29 +1,35 @@
 import "./App.module.css";
+import { useState, useEffect } from "react";
 import { Header } from "./Header";
 import { HeaderWrapper } from "./HeaderWrapper";
-import { ItemCard } from "./ItemCard";
 import { ListHeader } from "./ListHeader";
 import { Subheader } from "./Subheader";
 import { ListContainer } from "./ListContainer";
 import { ItemsList } from "./ItemsList";
-import { taskList } from "./taskList";
+import { TaskForm } from "./TaskForm";
 
 function App() {
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
+  const handleAddTask = (newTask) => {
+    setTasks((prevTasks) => [...prevTasks, newTask]);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   return (
     <div>
-      <HeaderWrapper> 
-        <Header title="TodoApp" />
-        <Subheader subtitle="Todo List Manager" />
-        <ListHeader content="Todo List" />
-      </HeaderWrapper>
+      <TaskForm onAddTask={handleAddTask} />
       <ListContainer>
-        <ItemsList itemsList={taskList}/>
+        <ItemsList itemsList={tasks} />
       </ListContainer>
     </div>
-  ); 
+  );
 }
 
 export default App;
-
-
-
